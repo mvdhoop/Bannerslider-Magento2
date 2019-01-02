@@ -54,10 +54,8 @@ class Slider extends \Magento\Framework\Model\AbstractModel
     /**
      * Evolution slider.
      */
-    const STYLESLIDE_EVOLUTION_ONE = 1;
-    const STYLESLIDE_EVOLUTION_TWO = 2;
-    const STYLESLIDE_EVOLUTION_THREE = 3;
-    const STYLESLIDE_EVOLUTION_FOUR = 4;
+    const STYLESLIDE_OWL = 1;
+    const STYLESLIDE_LIST = 2;
 
     /**
      * popup.
@@ -68,14 +66,6 @@ class Slider extends \Magento\Framework\Model\AbstractModel
      * note slider.
      */
     const STYLESLIDE_SPECIAL_NOTE = 6;
-
-    /**
-     * flexslider.
-     */
-    const STYLESLIDE_FLEXSLIDER_ONE = 7;
-    const STYLESLIDE_FLEXSLIDER_TWO = 8;
-    const STYLESLIDE_FLEXSLIDER_THREE = 9;
-    const STYLESLIDE_FLEXSLIDER_FOUR = 10;
 
     /**
      * position code of note slider.

@@ -30,8 +30,6 @@
 
         <add id="Magestore_Bannerslider::bannerslider_banners" title="Manage Banners" module="Magestore_Bannerslider" sortOrder="10" parent="Magestore_Bannerslider::bannerslider" action="bannerslideradmin/banner" resource="Magestore_Bannerslider::bannerslider_banners"/>
 
-        <add id="Magestore_Bannerslider::bannerslider_coreslider" title="Preview Slider Styles" module="Magestore_Bannerslider" sortOrder="10" parent="Magestore_Bannerslider::bannerslider" action="bannerslideradmin/coreslider" resource="Magestore_Bannerslider::bannerslider_coreslider"/>
-
         <!-- Magestore_Bannerslider::bannerslider_reports -->
         <add id="Magestore_Bannerslider::bannerslider_reports_perslider" title="Reports Per Slider" module="Magestore_Bannerslider" sortOrder="10" parent="Magestore_Bannerslider::bannerslider" action="bannerslideradmin/report" resource="Magestore_Bannerslider::bannerslider_reports_perslider"/>
         <add id="Magestore_Bannerslider::bannerslider_reports_allslider" title="Reports All Sliders" module="Magestore_Bannerslider" sortOrder="10" parent="Magestore_Bannerslider::bannerslider" action="bannerslideradmin/report/banner" resource="Magestore_Bannerslider::bannerslider_reports_allslider"/>

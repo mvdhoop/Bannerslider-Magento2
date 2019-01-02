@@ -28,7 +28,6 @@
 	        	    <resource id="Magestore_Bannerslider::bannerslider_bannerslider" title="Banner Slider" sortOrder="10">
 	        	        <resource id="Magestore_Bannerslider::bannerslider_sliders" title="Manage Sliders" sortOrder="10" />
 	        	        <resource id="Magestore_Bannerslider::bannerslider_banners" title="Manage Banners" sortOrder="10" />
-	        	        <resource id="Magestore_Bannerslider::bannerslider_coreslider" title="Preview Slider Styles" sortOrder="10" />
 	        	        <resource id="Magestore_Bannerslider::bannerslider_reports" title="Reports" sortOrder="10" >
 	        	            <resource id="Magestore_Bannerslider::bannerslider_reports_perslider" title="Reports Per Slider" sortOrder="10" />
 	        	            <resource id="Magestore_Bannerslider::bannerslider_reports_allslider" title="Reports All Sliders" sortOrder="10" />

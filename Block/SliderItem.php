@@ -40,6 +40,16 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     const STYLESLIDE_EVOLUTION_TEMPLATE = 'Magestore_Bannerslider::slider/evolution.phtml';
 
     /**
+     * template for owl carousel slider.
+     */
+    const STYLESLIDE_OWL_TEMPLATE = 'Magestore_Bannerslider::slider/owl.phtml';
+
+    /**
+     * template for static list slider.
+     */
+    const STYLESLIDE_LIST_TEMPLATE = 'Magestore_Bannerslider::slider/list.phtml';
+
+    /**
      * template for popup.
      */
     const STYLESLIDE_POPUP_TEMPLATE = 'Magestore_Bannerslider::slider/popup.phtml';
@@ -202,12 +212,13 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     public function setStyleSlideTemplate($styleSlideId)
     {
         switch ($styleSlideId) {
-            //Evolution slide
-            case SliderModel::STYLESLIDE_EVOLUTION_ONE:
-            case SliderModel::STYLESLIDE_EVOLUTION_TWO:
-            case SliderModel::STYLESLIDE_EVOLUTION_THREE:
-            case SliderModel::STYLESLIDE_EVOLUTION_FOUR:
-                $this->setTemplate(self::STYLESLIDE_EVOLUTION_TEMPLATE);
+
+            case SliderModel::STYLESLIDE_OWL:
+                $this->setTemplate(self::STYLESLIDE_OWL_TEMPLATE);
+                break;
+
+            case SliderModel::STYLESLIDE_LIST:
+                $this->setTemplate(self::STYLESLIDE_LIST_TEMPLATE);
                 break;
 
             case SliderModel::STYLESLIDE_POPUP:
@@ -218,9 +229,8 @@ class SliderItem extends \Magento\Framework\View\Element\Template
                 $this->setTemplate(self::STYLESLIDE_SPECIAL_NOTE_TEMPLATE);
                 break;
 
-            // Flex slide
             default:
-                $this->setTemplate(self::STYLESLIDE_FLEXSLIDER_TEMPLATE);
+                $this->setTemplate(self::STYLESLIDE_OWL_TEMPLATE);
                 break;
         }
     }

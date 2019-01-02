@@ -45,10 +45,6 @@ require(['jquery','magestore/zebra-tooltips'], function($) {
             $('#style_slide-note').toggle(pageStyleSlideVal != '' && pageStyleSlideVal != 5);
         }
 
-        function updateLinkPreview() {
-            $('#style-slide-view').attr('href', $('#style-slide-view').data('preview-url') + 'sliderpreview_id/' + $('#page_style_slide').val() + '/');
-        }
-
         function toggleCategoryId() {
             var position = $('#page_position' + ($('#page_style_content').val() == 1 ? '' : '_custom')).val();
             $('#page_category_ids').parents('.admin__field').toggle(categories.indexOf(position) != -1);
@@ -90,7 +86,6 @@ require(['jquery','magestore/zebra-tooltips'], function($) {
         toggleCustomCodeField();
         toggleStyleSlideNote();
         toggleCategoryId();
-        updateLinkPreview();
         updatePositionImage();
 
         $('#page_style_content').change(function(event) {
@@ -103,7 +98,6 @@ require(['jquery','magestore/zebra-tooltips'], function($) {
         $('#page_style_slide').change(function(event) {
             toggleDescriptionField();
             toggleStyleSlideNote();
-            updateLinkPreview();
         });
 
         $('#page_position').change(function(event) {

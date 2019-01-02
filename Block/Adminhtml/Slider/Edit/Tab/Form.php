@@ -174,15 +174,13 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
         );
 
-        $previewUrl = $this->_bannersliderHelper->getBackendUrl('*/*/preview', ['_current' => false]);
         $fieldMaps['style_slide'] = $fieldset->addField(
             'style_slide',
             'select',
             [
                 'label' => __('Select Slider Mode'),
                 'name' => 'style_slide',
-                'values' => $this->_bannersliderHelper->getStyleSlider(),
-                'note' => '<a data-preview-url="' . $previewUrl . '" href="' . $previewUrl . '" target="_blank" id="style-slide-view">Preview</a>',
+                'values' => $this->_bannersliderHelper->getStyleSlider()
             ]
         );
 

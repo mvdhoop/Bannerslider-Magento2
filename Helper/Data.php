@@ -140,16 +140,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getSliderModeAvailable()
     {
         return [
-            Slider::STYLESLIDE_EVOLUTION_ONE => 'Slider Evolution Default',
-            Slider::STYLESLIDE_EVOLUTION_TWO => 'Slider Evolution Caborno',
-            Slider::STYLESLIDE_EVOLUTION_THREE => 'Slider Evolution Minimalist',
-            Slider::STYLESLIDE_EVOLUTION_FOUR => 'Slider Evolution Fresh',
+            Slider::STYLESLIDE_OWL => 'Owl Carousel Slider',
+            Slider::STYLESLIDE_LIST => 'Static List',
             Slider::STYLESLIDE_POPUP => 'Pop up on Home page',
             Slider::STYLESLIDE_SPECIAL_NOTE => 'Note displayed on all pages',
-            Slider::STYLESLIDE_FLEXSLIDER_ONE => 'FlexSlider 1',
-            Slider::STYLESLIDE_FLEXSLIDER_TWO => 'FlexSlider 2',
-            Slider::STYLESLIDE_FLEXSLIDER_THREE => 'FlexSlider 3',
-            Slider::STYLESLIDE_FLEXSLIDER_FOUR => 'FlexSlider 4',
         ];
     }
 
@@ -165,52 +159,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                 'value' => '',
             ],
             [
+                'label' => __('Standard Slider'),
+                'value' => [
+                    [
+                        'label' => __('Owl Carousel Slider'),
+                        'value' => Slider::STYLESLIDE_OWL,
+                    ],
+                    [
+                        'label' => __('Static List'),
+                        'value' => Slider::STYLESLIDE_LIST,
+                    ],
+                ],
+            ],
+            [
                 'label' => __('Special Slider'),
                 'value' => [
                     ['value' => Slider::STYLESLIDE_POPUP, 'label' => __('Pop up on Home page')],
                     ['value' => Slider::STYLESLIDE_SPECIAL_NOTE, 'label' => __('Note displayed on all pages')],
-                ],
-            ],
-            [
-                'label' => __('Unresponsive Slider'),
-                'value' => [
-                    [
-                        'label' => __('Slider Evolution Default'),
-                        'value' => Slider::STYLESLIDE_EVOLUTION_ONE,
-                    ],
-                    [
-                        'label' => __('Slider Evolution Caborno'),
-                        'value' => Slider::STYLESLIDE_EVOLUTION_TWO,
-                    ],
-                    [
-                        'label' => __('Slider Evolution Minimalist'),
-                        'value' => Slider::STYLESLIDE_EVOLUTION_THREE,
-                    ],
-                    [
-                        'label' => __('Slider Evolution Fresh'),
-                        'value' => Slider::STYLESLIDE_EVOLUTION_FOUR,
-                    ],
-                ],
-            ],
-            [
-                'label' => __('Responsive Slider'),
-                'value' => [
-                    [
-                        'label' => __('FlexSlider 1'),
-                        'value' => Slider::STYLESLIDE_FLEXSLIDER_ONE,
-                    ],
-                    [
-                        'label' => __('FlexSlider 2'),
-                        'value' => Slider::STYLESLIDE_FLEXSLIDER_TWO,
-                    ],
-                    [
-                        'label' => __('FlexSlider 3'),
-                        'value' => Slider::STYLESLIDE_FLEXSLIDER_THREE,
-                    ],
-                    [
-                        'label' => __('FlexSlider 4'),
-                        'value' => Slider::STYLESLIDE_FLEXSLIDER_FOUR,
-                    ],
                 ],
             ],
         ];
@@ -416,53 +381,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
             'checkout-content-top' => __('Checkout-Content-Top'),
             'customer-sidebar-main-top' => __('Customer-Siderbar-Main-Top'),
             'customer-sidebar-main-bottom' => __('Customer-Siderbar-Main-Bottom'),
-        ];
-    }
-
-    /**
-     * get list slider for preview.
-     *
-     * @return []
-     */
-    public function getCoreSlider()
-    {
-        return [
-            [
-                'label' => __('Slider Evolution Default'),
-                'value' => Slider::STYLESLIDE_EVOLUTION_ONE,
-            ],
-            [
-                'label' => __('Slider Evolution Caborno'),
-                'value' => Slider::STYLESLIDE_EVOLUTION_TWO,
-            ],
-            [
-                'label' => __('Slider Evolution Minimalist'),
-                'value' => Slider::STYLESLIDE_EVOLUTION_THREE,
-            ],
-            [
-                'label' => __('Slider Evolution Fresh'),
-                'value' => Slider::STYLESLIDE_EVOLUTION_FOUR,
-            ],
-            [
-                'label' => __('Note display on all pages'),
-                'value' => Slider::STYLESLIDE_SPECIAL_NOTE,
-            ],
-            [
-                'label' => __('FlexSlider 1'),
-                'value' => Slider::STYLESLIDE_FLEXSLIDER_ONE,
-            ],
-            [
-                'label' => __('FlexSlider 2'),
-                'value' => Slider::STYLESLIDE_FLEXSLIDER_TWO,
-            ],
-            [
-                'label' => __('FlexSlider 3'),
-                'value' => Slider::STYLESLIDE_FLEXSLIDER_THREE,
-            ],
-            [
-                'label' => __('FlexSlider 4'),
-                'value' => Slider::STYLESLIDE_FLEXSLIDER_FOUR,
-            ],
         ];
     }
 }
