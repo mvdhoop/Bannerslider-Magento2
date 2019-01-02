@@ -257,6 +257,17 @@ class Banner extends \Magento\Backend\Block\Widget\Form\Generic implements \Mage
             ]
         );
 
+        $elements['mobile_image'] = $fieldset->addField(
+            'mobile_image',
+            'image',
+            [
+                'title' => __('Mobile Banner Image'),
+                'label' => __('Mobile Banner Image'),
+                'name' => 'mobile_image',
+                'note' => 'Allow image type: jpg, jpeg, gif, png',
+            ]
+        );
+
         $dateFormat = 'M/d/yyyy';
         $timeFormat = 'h:mm a';
         if($dataObj->hasData('start_time')) {

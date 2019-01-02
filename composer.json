@@ -16,6 +16,12 @@
       "email": "blanka@magestore.com",
       "homepage": "https://www.magestore.com/",
       "role": "Developer"
+    },
+    {
+      "name": "Amanda Mitchell",
+      "email": "amanda@inverseparadox.com",
+      "homepage": "https://www.inverseparadox.com/",
+      "role": "Developer"
     }
   ],
   "autoload": {

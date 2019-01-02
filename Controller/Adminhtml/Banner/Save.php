@@ -100,6 +100,58 @@ class Save extends \Magestore\Bannerslider\Controller\Adminhtml\Banner
                 }
             }
 
+            $_imageRequest = $this->getRequest()->getFiles('mobile_image');
+            if ($_imageRequest) {
+                if (isset($_imageRequest['name'])) {
+                    $fileName = $_imageRequest['name'];
+                } else {
+                    $fileName = '';
+                }
+            } else {
+                $fileName = '';
+            }
+
+            if ($_imageRequest && strlen($fileName)) {
+                /*
+                 * Save image upload
+                 */
+                try {
+                    $uploader = $this->_uploaderFactory->create(['fileId' => 'mobile_image']);
+
+                    $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
+
+                    /** @var \Magento\Framework\Image\Adapter\AdapterInterface $imageAdapter */
+                    $imageAdapter = $this->_adapterFactory->create();
+
+                    $uploader->addValidateCallback('banner_image', $imageAdapter, 'validateUploadFile');
+                    $uploader->setAllowRenameFiles(true);
+                    $uploader->setFilesDispersion(true);
+
+                    /** @var \Magento\Framework\Filesystem\Directory\Read $mediaDirectory */
+                    $mediaDirectory = $this->_objectManager->get('Magento\Framework\Filesystem')
+                        ->getDirectoryRead(DirectoryList::MEDIA);
+                    $result = $uploader->save(
+                        $mediaDirectory->getAbsolutePath(\Magestore\Bannerslider\Model\Banner::BASE_MEDIA_PATH)
+                    );
+                    $data['mobile_image'] = \Magestore\Bannerslider\Model\Banner::BASE_MEDIA_PATH.$result['file'];
+                } catch (\Exception $e) {
+                    if ($e->getCode() == 0) {
+                        $this->messageManager->addError($e->getMessage());
+                    }
+                }
+            } else {
+                if (isset($data['mobile_image']) && isset($data['mobile_image']['value'])) {
+                    if (isset($data['mobile_image']['delete'])) {
+                        $data['mobile_image'] = null;
+                        $data['delete_image'] = true;
+                    } elseif (isset($data['mobile_image']['value'])) {
+                        $data['mobile_image'] = $data['mobile_image']['value'];
+                    } else {
+                        $data['mobile_image'] = null;
+                    }
+                }
+            }
+
             /** @var \Magento\Framework\Stdlib\DateTime\TimezoneInterface $localeDate */
 //            $localeDate = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\TimezoneInterface');
             $localeDate = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\Timezone');
