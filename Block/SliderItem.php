@@ -34,10 +34,6 @@ use Magestore\Bannerslider\Model\Status;
  */
 class SliderItem extends \Magento\Framework\View\Element\Template
 {
-    /**
-     * template for evolution slider.
-     */
-    const STYLESLIDE_EVOLUTION_TEMPLATE = 'Magestore_Bannerslider::slider/evolution.phtml';
 
     /**
      * template for owl carousel slider.
@@ -48,21 +44,6 @@ class SliderItem extends \Magento\Framework\View\Element\Template
      * template for static list slider.
      */
     const STYLESLIDE_LIST_TEMPLATE = 'Magestore_Bannerslider::slider/list.phtml';
-
-    /**
-     * template for popup.
-     */
-    const STYLESLIDE_POPUP_TEMPLATE = 'Magestore_Bannerslider::slider/popup.phtml';
-
-    /**
-     * template for note slider.
-     */
-    const STYLESLIDE_SPECIAL_NOTE_TEMPLATE = 'Magestore_Bannerslider::slider/special/note.phtml';
-
-    /**
-     * template for flex slider.
-     */
-    const STYLESLIDE_FLEXSLIDER_TEMPLATE = 'Magestore_Bannerslider::slider/flexslider.phtml';
 
     /**
      * template for custom slider.
@@ -221,14 +202,6 @@ class SliderItem extends \Magento\Framework\View\Element\Template
                 $this->setTemplate(self::STYLESLIDE_LIST_TEMPLATE);
                 break;
 
-            case SliderModel::STYLESLIDE_POPUP:
-                $this->setTemplate(self::STYLESLIDE_POPUP_TEMPLATE);
-                break;
-            //Note all page
-            case SliderModel::STYLESLIDE_SPECIAL_NOTE:
-                $this->setTemplate(self::STYLESLIDE_SPECIAL_NOTE_TEMPLATE);
-                break;
-
             default:
                 $this->setTemplate(self::STYLESLIDE_OWL_TEMPLATE);
                 break;
@@ -315,16 +288,6 @@ class SliderItem extends \Magento\Framework\View\Element\Template
      */
     public function getMobileBannerImageUrl(\Magestore\Bannerslider\Model\Banner $banner)
     {
-        return $this->_bannersliderHelper->getBaseUrlMedia($banner->getMobileImage(), true);
-    }
-
-    /**
-     * get flexslider html id.
-     *
-     * @return string
-     */
-    public function getFlexsliderHtmlId()
-    {
-        return 'magestore-bannerslider-flex-slider-'.$this->getSlider()->getId().$this->_stdlibDateTime->gmtTimestamp();
+        return $this->_bannersliderHelper->getBaseUrlMedia($banner->getMobileImage());
     }
 }

@@ -7,18 +7,14 @@ var config = {
 		},
 	},
 	paths: {
-		'magestore/flexslider': 'Magestore_Bannerslider/js/jquery/slider/jquery-flexslider-min',
-		'magestore/evolutionslider': 'Magestore_Bannerslider/js/jquery/slider/jquery-slider-min',
 		'magestore/popup': 'Magestore_Bannerslider/js/jquery.bpopup.min',
+		'magestore/owlcarousel': 'Magestore_Bannerslider/js/owl.carousel.min'
 	},
 	shim: {
-		'magestore/flexslider': {
-			deps: ['jquery']
-		},
-		'magestore/evolutionslider': {
-			deps: ['jquery']
-		},
 		'magestore/zebra-tooltips': {
+			deps: ['jquery']
+		},
+		'magestore/owlcarousel': {
 			deps: ['jquery']
 		},
 	}

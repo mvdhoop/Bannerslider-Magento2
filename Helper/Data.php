@@ -142,8 +142,6 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return [
             Slider::STYLESLIDE_OWL => 'Owl Carousel Slider',
             Slider::STYLESLIDE_LIST => 'Static List',
-            Slider::STYLESLIDE_POPUP => 'Pop up on Home page',
-            Slider::STYLESLIDE_SPECIAL_NOTE => 'Note displayed on all pages',
         ];
     }
 
@@ -170,14 +168,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                         'value' => Slider::STYLESLIDE_LIST,
                     ],
                 ],
-            ],
-            [
-                'label' => __('Special Slider'),
-                'value' => [
-                    ['value' => Slider::STYLESLIDE_POPUP, 'label' => __('Pop up on Home page')],
-                    ['value' => Slider::STYLESLIDE_SPECIAL_NOTE, 'label' => __('Note displayed on all pages')],
-                ],
-            ],
+            ]
         ];
     }
 

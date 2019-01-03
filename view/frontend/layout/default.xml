@@ -21,6 +21,10 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+	<head>
+        <css src="Magestore_Bannerslider::css/owl.carousel.min.css"/>
+        <css src="Magestore_Bannerslider::css/owl.theme.default.min.css"/>
+    </head>
     <body>
     	<referenceContainer name="right">
     		<block class="Magestore\Bannerslider\Block\Bannerslider" name="bannerslider.sidebar.right.top" before="-">

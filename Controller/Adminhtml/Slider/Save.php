@@ -49,10 +49,6 @@ class Save extends \Magestore\Bannerslider\Controller\Adminhtml\Slider
                     $sliderData['style_slide'] == Slider::STYLESLIDE_LIST
                 ) {
                     $sliderData['animationB'] = $sliderData['animationA'];
-                } elseif ($sliderData['style_slide'] == Slider::STYLESLIDE_POPUP) {
-                    $sliderData['position'] = 'pop-up';
-                } elseif ($sliderData['style_slide'] == Slider::STYLESLIDE_SPECIAL_NOTE) {
-                    $sliderData['position'] = 'note-allsite';
                 }
             }
 
