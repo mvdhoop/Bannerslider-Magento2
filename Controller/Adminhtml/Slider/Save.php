@@ -44,17 +44,6 @@ class Save extends \Magestore\Bannerslider\Controller\Adminhtml\Slider
         if (isset($formPostValues['slider'])) {
             $sliderData = $formPostValues['slider'];
             $sliderId = isset($sliderData['slider_id']) ? $sliderData['slider_id'] : null;
-            if (isset($sliderData['style_slide'])) {
-                if ($sliderData['style_slide'] == Slider::STYLESLIDE_OWL ||
-                    $sliderData['style_slide'] == Slider::STYLESLIDE_LIST
-                ) {
-                    $sliderData['animationB'] = $sliderData['animationA'];
-                }
-            }
-
-            if ($sliderData['style_content'] == Slider::STYLE_CONTENT_NO) {
-                $sliderData['position'] = $sliderData['position_custom'];
-            }
 
             if (isset($sliderData['category_ids'])) {
                 $sliderData['category_ids'] = implode(',', $sliderData['category_ids']);

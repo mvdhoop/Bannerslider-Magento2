@@ -23,6 +23,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         if (version_compare($context->getVersion(), '1.8.0') < 0) {
 
+            // mobile image for banners
             $table = $setup->getTable('magestore_bannerslider_banner');
             if ($setup->getConnection()->isTableExists($table) == true) {
                 $column = $setup->getConnection()->tableColumnExists($table, 'mobile_image');
@@ -35,6 +36,67 @@ class UpgradeSchema implements UpgradeSchemaInterface
                             'length'   => 255,
                             'nullable' => true,
                             'comment'  => 'Mobile Banner Image'
+                        ]
+                    );
+                }
+            }
+
+            // owl carousel settings for sliders
+            $table = $setup->getTable('magestore_bannerslider_slider');
+            if ($setup->getConnection()->isTableExists($table) == true) {
+                
+                $columnArrows = $setup->getConnection()->tableColumnExists($table, 'show_arrows');
+                if (!$columnArrows) {
+                    $setup->getConnection()->addColumn(
+                        $table,
+                        'show_arrows',
+                        [
+                            'type'     => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                            'length'   => 10,
+                            'nullable' => true,
+                            'comment'  => 'Show arrows'
+                        ]
+                    );
+                }
+
+                $columnDots = $setup->getConnection()->tableColumnExists($table, 'show_dots');
+                if (!$columnDots) {
+                    $setup->getConnection()->addColumn(
+                        $table,
+                        'show_dots',
+                        [
+                            'type'     => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                            'length'   => 10,
+                            'nullable' => true,
+                            'comment'  => 'Show dots'
+                        ]
+                    );
+                }
+
+                $columnAutoplay = $setup->getConnection()->tableColumnExists($table, 'autoplay');
+                if (!$columnAutoplay) {
+                    $setup->getConnection()->addColumn(
+                        $table,
+                        'autoplay',
+                        [
+                            'type'     => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                            'length'   => 10,
+                            'nullable' => true,
+                            'comment'  => 'Autoplay'
+                        ]
+                    );
+                }
+
+                $columnAnimationSpeeed = $setup->getConnection()->tableColumnExists($table, 'anim_speed');
+                if (!$columnAnimationSpeeed) {
+                    $setup->getConnection()->addColumn(
+                        $table,
+                        'anim_speed',
+                        [
+                            'type'     => \Magento\Framework\DB\Ddl\Table::TYPE_FLOAT,
+                            'length'   => 10,
+                            'nullable' => true,
+                            'comment'  => 'Animation speed'
                         ]
                     );
                 }

@@ -143,36 +143,36 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
         );
 
-        $fieldMaps['style_content'] = $fieldset->addField(
-            'style_content',
-            'select',
-            [
-                'label' => __('Select available Slider Styles'),
-                'name' => 'style_content',
-                'values' => [
-                    [
-                        'value' => Status::STATUS_ENABLED,
-                        'label' => __('Yes'),
-                    ],
-                    [
-                        'value' => Status::STATUS_DISABLED,
-                        'label' => __('No'),
-                    ],
-                ],
-            ]
-        );
+        // $fieldMaps['style_content'] = $fieldset->addField(
+        //     'style_content',
+        //     'select',
+        //     [
+        //         'label' => __('Select available Slider Styles'),
+        //         'name' => 'style_content',
+        //         'values' => [
+        //             [
+        //                 'value' => Status::STATUS_ENABLED,
+        //                 'label' => __('Yes'),
+        //             ],
+        //             [
+        //                 'value' => Status::STATUS_DISABLED,
+        //                 'label' => __('No'),
+        //             ],
+        //         ],
+        //     ]
+        // );
 
-        $fieldMaps['custom_code'] = $fieldset->addField(
-            'custom_code',
-            'editor',
-            [
-                'name' => 'custom_code',
-                'label' => __('Custom slider'),
-                'title' => __('Custom slider'),
-                'wysiwyg' => true,
-                'required' => false,
-            ]
-        );
+        // $fieldMaps['custom_code'] = $fieldset->addField(
+        //     'custom_code',
+        //     'editor',
+        //     [
+        //         'name' => 'custom_code',
+        //         'label' => __('Custom slider'),
+        //         'title' => __('Custom slider'),
+        //         'wysiwyg' => true,
+        //         'required' => false,
+        //     ]
+        // );
 
         $fieldMaps['style_slide'] = $fieldset->addField(
             'style_slide',
@@ -203,27 +203,37 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
         );
 
-        $fieldMaps['width'] = $fieldset->addField(
-            'width',
-            'text',
-            [
-                'label' => __('Width'),
-                'name' => 'width',
-                'required' => true,
-                'class' => 'required-entry validate-number validate-greater-than-zero',
-            ]
-        );
+        // $fieldMaps['width'] = $fieldset->addField(
+        //     'width',
+        //     'text',
+        //     [
+        //         'label' => __('Width'),
+        //         'name' => 'width',
+        //         'required' => true,
+        //         'class' => 'required-entry validate-number validate-greater-than-zero',
+        //     ]
+        // );
 
-        $fieldMaps['height'] = $fieldset->addField(
-            'height',
-            'text',
-            [
-                'label' => __('Height'),
-                'name' => 'height',
-                'required' => true,
-                'class' => 'required-entry validate-number validate-greater-than-zero',
-            ]
-        );
+        // $fieldMaps['height'] = $fieldset->addField(
+        //     'height',
+        //     'text',
+        //     [
+        //         'label' => __('Height'),
+        //         'name' => 'height',
+        //         'required' => true,
+        //         'class' => 'required-entry validate-number validate-greater-than-zero',
+        //     ]
+        // );
+
+        // $fieldMaps['animationB'] = $fieldset->addField(
+        //     'animationB',
+        //     'select',
+        //     [
+        //         'label' => __('Animation Effect'),
+        //         'name' => 'animationB',
+        //         'values' => $this->_bannersliderHelper->getAnimationB(),
+        //     ]
+        // );
 
         $fieldMaps['animationB'] = $fieldset->addField(
             'animationB',
@@ -235,24 +245,43 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
         );
 
-        $fieldMaps['animationA'] = $fieldset->addField(
-            'animationA',
-            'select',
+        // $fieldMaps['note_color'] = $fieldset->addField(
+        //     'note_color',
+        //     'select',
+        //     [
+        //         'name' => 'note_color',
+        //         'label' => __('Color'),
+        //         'title' => __('Color'),
+        //         'values' => $this->_bannersliderHelper->getOptionColor(),
+        //     ]
+        // );
+
+        $fieldMaps['anim_speed'] = $fieldset->addField(
+            'anim_speed',
+            'text',
             [
-                'label' => __('Animation Effect'),
-                'name' => 'animationA',
-                'values' => $this->_bannersliderHelper->getAnimationA(),
+                'label' => __('Animation Speed'),
+                'name' => 'anim_speed',
+                'note' => 'in milliseconds. This is the speed of the animated transition.',
             ]
         );
 
-        $fieldMaps['note_color'] = $fieldset->addField(
-            'note_color',
+        $fieldMaps['autoplay'] = $fieldset->addField(
+            'autoplay',
             'select',
             [
-                'name' => 'note_color',
-                'label' => __('Color'),
-                'title' => __('Color'),
-                'values' => $this->_bannersliderHelper->getOptionColor(),
+                'label' => __('Enable Autoplay'),
+                'name' => 'autoplay',
+                'values' => [
+                    [
+                        'value' => Status::STATUS_ENABLED,
+                        'label' => __('Yes'),
+                    ],
+                    [
+                        'value' => Status::STATUS_DISABLED,
+                        'label' => __('No'),
+                    ],
+                ],
             ]
         );
 
@@ -260,35 +289,73 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'slider_speed',
             'text',
             [
-                'label' => __('Speed'),
+                'label' => __('Timeout'),
                 'name' => 'slider_speed',
-                'note' => 'milliseconds . This is the display time of a banner',
+                'note' => 'in milliseconds. This is the length of time an individual banner slide will be displayed.',
             ]
         );
 
-        $fieldMaps['position_note'] = $fieldset->addField(
-            'position_note',
+        $fieldMaps['show_dots'] = $fieldset->addField(
+            'show_dots',
             'select',
             [
-                'name' => 'position_note',
-                'label' => __('Position'),
-                'title' => __('Position'),
-                'values' => $slider->getPositionNoteOptions(),
-                'note' => 'is position will be shown on all pages',
+                'label' => __('Display Navigation Dots'),
+                'name' => 'show_dots',
+                'values' => [
+                    [
+                        'value' => Status::STATUS_ENABLED,
+                        'label' => __('Yes'),
+                    ],
+                    [
+                        'value' => Status::STATUS_DISABLED,
+                        'label' => __('No'),
+                    ],
+                ],
             ]
         );
 
-        $fieldMaps['description'] = $fieldset->addField(
-            'description',
-            'editor',
+        $fieldMaps['show_arrows'] = $fieldset->addField(
+            'show_arrows',
+            'select',
             [
-                'name' => 'description',
-                'label' => __('Note\'s content'),
-                'title' => __('Note\'s content'),
-                'wysiwyg' => true,
-                'required' => false,
+                'label' => __('Display Prev/Next Arrows'),
+                'name' => 'show_arrows',
+                'values' => [
+                    [
+                        'value' => Status::STATUS_ENABLED,
+                        'label' => __('Yes'),
+                    ],
+                    [
+                        'value' => Status::STATUS_DISABLED,
+                        'label' => __('No'),
+                    ],
+                ],
             ]
         );
+
+        // $fieldMaps['position_note'] = $fieldset->addField(
+        //     'position_note',
+        //     'select',
+        //     [
+        //         'name' => 'position_note',
+        //         'label' => __('Position'),
+        //         'title' => __('Position'),
+        //         'values' => $slider->getPositionNoteOptions(),
+        //         'note' => 'is position will be shown on all pages',
+        //     ]
+        // );
+
+        // $fieldMaps['description'] = $fieldset->addField(
+        //     'description',
+        //     'editor',
+        //     [
+        //         'name' => 'description',
+        //         'label' => __('Note\'s content'),
+        //         'title' => __('Note\'s content'),
+        //         'wysiwyg' => true,
+        //         'required' => false,
+        //     ]
+        // );
 
         $positionImage = [];
         for ($i = 1; $i <= 5; ++$i) {
@@ -306,17 +373,17 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             ]
         );
 
-        $fieldMaps['position_custom'] = $fieldset->addField(
-            'position_custom',
-            'select',
-            [
-                'name' => 'position_custom',
-                'label' => __('Position'),
-                'title' => __('Position'),
-                'values' => $this->_bannersliderHelper->getBlockIdsToOptionsArray(),
-                'note' => '<a title="" data-position-image=\'' . json_encode($positionImage) . '\' data-tooltip-image="">Preview</a>',
-            ]
-        );
+        // $fieldMaps['position_custom'] = $fieldset->addField(
+        //     'position_custom',
+        //     'select',
+        //     [
+        //         'name' => 'position_custom',
+        //         'label' => __('Position'),
+        //         'title' => __('Position'),
+        //         'values' => $this->_bannersliderHelper->getBlockIdsToOptionsArray(),
+        //         'note' => '<a title="" data-position-image=\'' . json_encode($positionImage) . '\' data-tooltip-image="">Preview</a>',
+        //     ]
+        // );
 
         $fieldMaps['category_ids'] = $fieldset->addField(
             'category_ids',
@@ -367,7 +434,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
         $defaultData = [
             'width' => 400,
             'height' => 200,
-            'slider_speed' => 4500,
+            'slider_speed' => 5000,
+            'show_arrows' => 0,
+            'show_dots' => 1,
+            'autoplay' => 1,
+            'anim_speed' => 250,
+            'style_content' => 1,
         ];
 
         if (!$slider->getId()) {
@@ -405,11 +477,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
     {
         return [
             [
-                'fieldName' => ['width', 'height'],
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '1,2,3,4,5',
-            ],
-            [
                 'fieldName' => 'category_ids',
                 'fieldNameFrom' => 'position',
                 'refField' => implode(',', [
@@ -424,58 +491,14 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
                 ]),
             ],
             [
-                'fieldName' => [
-                    'width',
-                    'height',
-                    'animationA',
-                    'animationB',
-                    'position',
-                    'style_slide',
-                    'sort_type',
-                    'note_color',
-                    'slider_speed',
-                    'position_note',
-                ],
-                'fieldNameFrom' => 'style_content',
+                'fieldName' => ['animationB', 'anim_speed', 'autoplay', 'slider_speed', 'show_dots', 'show_arrows'],
+                'fieldNameFrom' => 'style_slide',
                 'refField' => '1',
             ],
             [
-                'fieldName' => 'animationA',
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '1,2,3,4',
-            ],
-            [
-                'fieldName' => 'animationB',
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '7,8,9',
-            ],
-            [
-                'fieldName' => 'position',
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '5,6,',
-                'negative' => true,
-            ],
-            [
-                'fieldName' => 'position_custom',
-                'fieldNameFrom' => 'style_content',
-                'refField' => '2',
-            ],
-            [
-                'fieldName' => 'sort_type',
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '5,',
-                'negative' => true,
-            ],
-            [
-                'fieldName' => ['note_color', 'position_note'],
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '6',
-            ],
-            [
-                'fieldName' => 'slider_speed',
-                'fieldNameFrom' => 'style_slide',
-                'refField' => '5,10,',
-                'negative' => true,
+                'fieldName' => ['slider_speed'],
+                'fieldNameFrom' => 'autoplay',
+                'refField' => '1',
             ],
         ];
     }

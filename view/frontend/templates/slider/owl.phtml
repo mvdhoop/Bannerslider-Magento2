@@ -22,6 +22,12 @@
 
 $slider = $block->getSlider();
 $sliderId = 'bannerslider-' . md5(microtime());
+$owlNav = $slider->getShowArrows();
+$owlDots = $slider->getShowDots();
+$owlAutoplay = $slider->getAutoplay();
+$owlAutoplayTimeout = $slider->getSliderSpeed();
+$owlSmartSpeed = $slider->getAnimSpeed();
+$owlEffect = $slider->getData('animationB');
 ?>
 
 <div class="block block-bannerslider block-bannerslider-carousel" data-mage-init='{"magestore/impress": {"url": "<?php echo $this->getUrl("bannerslider/index/impress") ?>", "slider_id": "<?php echo $slider->getId() ?>"}}'>
@@ -31,7 +37,7 @@ $sliderId = 'bannerslider-' . md5(microtime());
         </div>
     <?php endif; ?>
     <div class="block-content">
-<div class="bannerslider-slides" id="<?php echo $sliderId; ?>">
+    <div class="bannerslider-slides" id="<?php echo $sliderId; ?>">
         <?php foreach ($block->getBannerCollection() as $banner): ?>
             <div class="bannerslider-slide">
                 <a href="<?php echo $block->escapeUrl($banner->getClickUrl()) ?>" target="<?php echo $banner->getTargetValue() ?>"  data-mage-init='{"magestore/clickbanner": {"url": "<?php echo $this->getUrl("bannerslider/index/click") ?>", "slider_id": "<?php echo $banner->getSliderId() ?>", "banner_id": "<?php echo $banner->getId() ?>" }}' >
@@ -54,7 +60,16 @@ $sliderId = 'bannerslider-' . md5(microtime());
                 .addClass('owl-carousel owl-theme')
                 .owlCarousel({
                     items: 1,
-                    loop: true
+                    loop: true,
+                    <?php if ($owlEffect == 'fade'): ?>
+                    animateOut: 'fadeOut',
+                    <?php endif; ?>
+                    nav: <?php echo $owlNav; ?>,
+                    dots: <?php echo $owlDots; ?>,
+                    autoplay: <?php echo $owlAutoplay; ?>,
+                    autoplayTimeout: <?php echo $owlAutoplayTimeout; ?>,
+                    autoplayHoverPause: true,
+                    smartSpeed: <?php echo $owlSmartSpeed; ?>
                 });
         });
     </script>

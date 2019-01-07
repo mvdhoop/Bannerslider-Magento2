@@ -180,20 +180,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return [
             [
+                'label' => __('Slide'),
+                'value' => 'slide',
+            ],
+            [
                 'label' => __('Fade'),
                 'value' => 'fade',
-            ],
-            [
-                'label' => __('Square'),
-                'value' => 'squarerandom',
-            ],
-            [
-                'label' => __('Bar'),
-                'value' => 'bar',
-            ],
-            [
-                'label' => __('Rain'),
-                'value' => 'rain',
             ],
         ];
     }

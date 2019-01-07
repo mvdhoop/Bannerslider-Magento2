@@ -22,6 +22,8 @@
 
 namespace Magestore\Bannerslider\Model;
 
+use Magestore\Bannerslider\Model\Status;
+
 /**
  * Slider Model
  * @category Magestore
@@ -172,5 +174,80 @@ class Slider extends \Magento\Framework\Model\AbstractModel
         }
 
         return $option;
+    }
+
+    /**
+     * Get show arrows value
+     *
+     * @return string
+     */
+    public function getShowArrows()
+    {
+        $showArrows = $this->getData('show_arrows');
+        if ($showArrows != null && $showArrows == Status::STATUS_ENABLED) {
+            return 'true';
+        } else {
+            return 'false'; 
+        }
+    }
+
+    /**
+     * Get show dots value
+     *
+     * @return string
+     */
+    public function getShowDots()
+    {
+        $showDots = $this->getData('show_dots');
+        if ($showDots != null && $showDots == Status::STATUS_DISABLED) {
+            return 'false';
+        } else {
+            return 'true'; 
+        }
+    }
+
+    /**
+     * Get autoplay value
+     *
+     * @return string
+     */
+    public function getAutoplay()
+    {
+        $autoplay = $this->getData('autoplay');
+        if ($autoplay != null && $autoplay == Status::STATUS_ENABLED) {
+            return 'true';
+        } else {
+            return 'false'; 
+        }
+    }
+
+    /**
+     * Get timeout value
+     *
+     * @return string
+     */
+    public function getSliderSpeed()
+    {
+        $sliderSpeed = $this->getData('slider_speed');
+        if ($sliderSpeed != null) {
+            return $sliderSpeed;
+        } else {
+            return '5000'; 
+        }
+    }
+
+    /**
+     * Get animation speed value
+     *
+     * @return string
+     */
+    public function getAnimSpeed()
+    {
+        $animationSpeed = $this->getData('anim_speed');
+        if ($animationSpeed != null) {
+            return $animationSpeed;
+        } else {
+            return '250'; 
+        }
     }
 }
