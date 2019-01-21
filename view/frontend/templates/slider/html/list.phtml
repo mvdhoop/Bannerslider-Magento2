@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Bannerslider
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+$slider = $block->getSlider();
+?>
+
+<div class="block block-bannerslider block-bannerslider-list" data-mage-init='{"magestore/impress": {"url": "<?php echo $this->getUrl("bannerslider/index/impress") ?>", "slider_id": "<?php echo $slider->getId() ?>"}}'>
+    <?php if ($block->isShowTitle() == 1): ?>
+        <div class="block-title">
+            <strong><?php echo $slider->getTitle(); ?></strong>
+        </div>
+    <?php endif; ?>
+    <div class="block-content">
+        <div class="bannerslider-slides">
+        <?php foreach ($block->getBannerCollection() as $banner): ?>
+            <div class="bannerslider-slide">
+                <?php echo $banner->getCaption(); ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>

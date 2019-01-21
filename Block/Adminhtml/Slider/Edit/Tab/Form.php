@@ -435,7 +435,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             'width' => 400,
             'height' => 200,
             'slider_speed' => 5000,
-            'show_arrows' => 0,
+            'show_arrows' => 2,
             'show_dots' => 1,
             'autoplay' => 1,
             'anim_speed' => 250,
@@ -493,12 +493,12 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magent
             [
                 'fieldName' => ['animationB', 'anim_speed', 'autoplay', 'slider_speed', 'show_dots', 'show_arrows'],
                 'fieldNameFrom' => 'style_slide',
-                'refField' => '1',
+                'refField' => '1,3',
             ],
             [
                 'fieldName' => ['slider_speed'],
                 'fieldNameFrom' => 'autoplay',
-                'refField' => '1',
+                'refField' => '1,3',
             ],
         ];
     }

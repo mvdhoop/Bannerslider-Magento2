@@ -39,11 +39,13 @@ class SliderItem extends \Magento\Framework\View\Element\Template
      * template for owl carousel slider.
      */
     const STYLESLIDE_OWL_TEMPLATE = 'Magestore_Bannerslider::slider/owl.phtml';
+    const STYLESLIDE_OWL_HTML_TEMPLATE = 'Magestore_Bannerslider::slider/html/owl.phtml';
 
     /**
      * template for static list slider.
      */
     const STYLESLIDE_LIST_TEMPLATE = 'Magestore_Bannerslider::slider/list.phtml';
+    const STYLESLIDE_LIST_HTML_TEMPLATE = 'Magestore_Bannerslider::slider/html/list.phtml';
 
     /**
      * template for custom slider.
@@ -198,8 +200,16 @@ class SliderItem extends \Magento\Framework\View\Element\Template
                 $this->setTemplate(self::STYLESLIDE_OWL_TEMPLATE);
                 break;
 
+                case SliderModel::STYLESLIDE_OWL_HTML:
+                $this->setTemplate(self::STYLESLIDE_OWL_HTML_TEMPLATE);
+                break;
+
             case SliderModel::STYLESLIDE_LIST:
                 $this->setTemplate(self::STYLESLIDE_LIST_TEMPLATE);
+                break;
+
+                case SliderModel::STYLESLIDE_LIST_HTML:
+                $this->setTemplate(self::STYLESLIDE_LIST_HTML_TEMPLATE);
                 break;
 
             default:

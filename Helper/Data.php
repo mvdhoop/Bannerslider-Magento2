@@ -142,6 +142,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         return [
             Slider::STYLESLIDE_OWL => 'Owl Carousel Slider',
             Slider::STYLESLIDE_LIST => 'Static List',
+            Slider::STYLESLIDE_OWL_HTML => 'Owl Carousel HTML Slider',
+            Slider::STYLESLIDE_LIST_HTML => 'Static HTML List',
         ];
     }
 
@@ -166,6 +168,19 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                     [
                         'label' => __('Static List'),
                         'value' => Slider::STYLESLIDE_LIST,
+                    ],
+                ],
+            ],
+            [
+                'label' => __('HTML Slider'),
+                'value' => [
+                    [
+                        'label' => __('Owl Carousel HTML Slider'),
+                        'value' => Slider::STYLESLIDE_OWL_HTML,
+                    ],
+                    [
+                        'label' => __('Static HTML List'),
+                        'value' => Slider::STYLESLIDE_LIST_HTML,
                     ],
                 ],
             ]

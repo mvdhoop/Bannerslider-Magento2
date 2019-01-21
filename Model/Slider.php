@@ -58,6 +58,8 @@ class Slider extends \Magento\Framework\Model\AbstractModel
      */
     const STYLESLIDE_OWL = 1;
     const STYLESLIDE_LIST = 2;
+    const STYLESLIDE_OWL_HTML = 3;
+    const STYLESLIDE_LIST_HTML = 4;
 
     /**
      * popup.

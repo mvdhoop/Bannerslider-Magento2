@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Bannerslider
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+$slider = $block->getSlider();
+$sliderId = 'bannerslider-' . md5(microtime());
+$owlNav = $slider->getShowArrows();
+$owlDots = $slider->getShowDots();
+$owlAutoplay = $slider->getAutoplay();
+$owlAutoplayTimeout = $slider->getSliderSpeed();
+$owlSmartSpeed = $slider->getAnimSpeed();
+$owlEffect = $slider->getData('animationB');
+?>
+
+<div class="block block-bannerslider block-bannerslider-carousel" data-mage-init='{"magestore/impress": {"url": "<?php echo $this->getUrl("bannerslider/index/impress") ?>", "slider_id": "<?php echo $slider->getId() ?>"}}'>
+    <?php if ($block->isShowTitle() == 1): ?>
+        <div class="block-title">
+            <strong><?php echo $slider->getTitle(); ?></strong>
+        </div>
+    <?php endif; ?>
+    <div class="block-content">
+    <div class="bannerslider-slides" id="<?php echo $sliderId; ?>">
+        <?php foreach ($block->getBannerCollection() as $banner): ?>
+            <div class="bannerslider-slide">
+                <?php echo $banner->getCaption(); ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+</div>
+
+<?php if ($block->getBannerCollection()->count() > 1): ?>
+    <script type="text/javascript">
+        require(['jquery', 'magestore/owlcarousel', 'domReady!'], function($) {
+            $('#<?php echo $sliderId; ?>')
+                .addClass('owl-carousel owl-theme')
+                .owlCarousel({
+                    items: 1,
+                    loop: true,
+                    <?php if ($owlEffect == 'fade'): ?>
+                    animateOut: 'fadeOut',
+                    <?php endif; ?>
+                    nav: <?php echo $owlNav; ?>,
+                    dots: <?php echo $owlDots; ?>,
+                    autoplay: <?php echo $owlAutoplay; ?>,
+                    autoplayTimeout: <?php echo $owlAutoplayTimeout; ?>,
+                    autoplayHoverPause: true,
+                    smartSpeed: <?php echo $owlSmartSpeed; ?>
+                });
+        });
+    </script>
+    <style type="text/css">
+        #<?php echo $sliderId; ?>:not(.owl-loaded) .bannerslider-slide:not(:first-child) {
+            display: none;
+        }
+    </style>
+<?php endif; ?>
