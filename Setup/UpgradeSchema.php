@@ -7,9 +7,9 @@
 
 namespace Magestore\Bannerslider\Setup;
 
-use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
+use Magento\Framework\Setup\UpgradeSchemaInterface;
 
 class UpgradeSchema implements UpgradeSchemaInterface
 {
@@ -17,11 +17,16 @@ class UpgradeSchema implements UpgradeSchemaInterface
     /**
      * {@inheritdoc}
      */
-    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context) {
-
+    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
+    {
         $setup->startSetup();
 
-        if (version_compare($context->getVersion(), '1.8.0') < 0) {
+        $version = $context->getVersion();
+        if (!$version) {
+            $version = 0;
+        }
+
+        if (version_compare($version, '1.8.0', ' <=')) {
 
             // mobile image for banners
             $table = $setup->getTable('magestore_bannerslider_banner');
@@ -44,7 +49,6 @@ class UpgradeSchema implements UpgradeSchemaInterface
             // owl carousel settings for sliders
             $table = $setup->getTable('magestore_bannerslider_slider');
             if ($setup->getConnection()->isTableExists($table) == true) {
-                
                 $columnArrows = $setup->getConnection()->tableColumnExists($table, 'show_arrows');
                 if (!$columnArrows) {
                     $setup->getConnection()->addColumn(
@@ -101,12 +105,8 @@ class UpgradeSchema implements UpgradeSchemaInterface
                     );
                 }
             }
-
         }
 
         $setup->endSetup();
-
     }
-
-
 }
