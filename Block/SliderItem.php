@@ -88,9 +88,9 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     protected $_bannersliderHelper;
 
     /**
-     * @var \Magestore\Bannerslider\Model\ResourceModel\Banner\CollectionFactory
+     * @var \Magestore\Bannerslider\Model\BannerFactory
      */
-    protected $_bannerCollectionFactory;
+    protected $_bannerFactory;
 
     /**
      * scope config.
@@ -107,21 +107,19 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     protected $_stdTimezone;
 
     /**
-     * [__construct description].
-     *
-     * @param \Magento\Framework\View\Element\Template\Context                $context
-     * @param \Magestore\Bannerslider\Model\ResourceModel\Banner\CollectionFactory $bannerCollectionFactory
-     * @param \Magestore\Bannerslider\Model\SliderFactory                     $sliderFactory
+     * SliderItem constructor.
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magestore\Bannerslider\Model\BannerFactory $bannerFactory
+     * @param \Magestore\Bannerslider\Model\SliderFactory $sliderFactory
      * @param SliderModel $slider
-     * @param \Magento\Framework\Stdlib\DateTime\DateTime                     $stdlibDateTime
-     * @param \Magestore\Bannerslider\Helper\Data                             $bannersliderHelper
-     * @param \Magento\Store\Model\StoreManagerInterface                      $storeManager
-     * @param \Magento\Framework\Stdlib\DateTime\Timezone                     $_stdTimezone
-     * @param array                                                           $data
+     * @param \Magento\Framework\Stdlib\DateTime\DateTime $stdlibDateTime
+     * @param \Magestore\Bannerslider\Helper\Data $bannersliderHelper
+     * @param \Magento\Framework\Stdlib\DateTime\Timezone $_stdTimezone
+     * @param array $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Magestore\Bannerslider\Model\ResourceModel\Banner\Collection $bannerCollectionFactory,
+        \Magestore\Bannerslider\Model\BannerFactory $bannerFactory,
         \Magestore\Bannerslider\Model\SliderFactory $sliderFactory,
         SliderModel $slider,
         \Magento\Framework\Stdlib\DateTime\DateTime $stdlibDateTime,
@@ -134,7 +132,7 @@ class SliderItem extends \Magento\Framework\View\Element\Template
         $this->_slider = $slider;
         $this->_stdlibDateTime = $stdlibDateTime;
         $this->_bannersliderHelper = $bannersliderHelper;
-        $this->_bannerCollectionFactory = $bannerCollectionFactory;
+        $this->_bannerFactory = $bannerFactory;
         $this->_scopeConfig = $context->getScopeConfig();
         $this->_stdTimezone = $_stdTimezone;
     }
@@ -220,7 +218,7 @@ class SliderItem extends \Magento\Framework\View\Element\Template
 
     public function isShowTitle()
     {
-        return $this->_slider->getShowTitle() == SliderModel::SHOW_TITLE_YES ? TRUE : FALSE;
+        return $this->_slider->getShowTitle() == SliderModel::SHOW_TITLE_YES ? true : false;
     }
 
     /**
@@ -231,7 +229,9 @@ class SliderItem extends \Magento\Framework\View\Element\Template
     public function getBannerCollection()
     {
         $sliderId = $this->_slider->getId();
-        return $this->_bannerCollectionFactory->getBannerCollection($sliderId);
+        $bannerModel = $this->_bannerFactory->create();
+
+        return $bannerModel->getResourceCollection()->getBannerCollection($sliderId);
     }
 
     /**
